@@ -5,3 +5,11 @@
 *.war
 *.ear
 /bin
+
+\.classpath
+
+\.project
+
+\.settings/
+
+C01MedidasProcesoProducto\.pdf
