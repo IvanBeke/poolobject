@@ -11,44 +11,45 @@ import ubu.gii.dass.c01.NotFreeInstanceException;
 import ubu.gii.dass.c01.Reusable;
 import ubu.gii.dass.c01.ReusablePool;
 
+import static org.junit.Assert.*;
+
 /**
  * @author alumno
- *
  */
 public class ReusablePoolTest {
 
     private ReusablePool pool = null;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
-	    pool = ReusablePool.getInstance();
-	}
+    /**
+     * @throws java.lang.Exception
+     */
+    @Before
+    public void setUp() throws Exception {
+        pool = ReusablePool.getInstance();
+    }
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	    pool = null;
-	}
+    /**
+     * @throws java.lang.Exception
+     */
+    @After
+    public void tearDown() throws Exception {
+        pool = null;
+    }
 
-	/**
-	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#getInstance()}.
-	 */
-	@Test
-	public void testGetInstance() {
+    /**
+     * Test method for {@link ubu.gii.dass.c01.ReusablePool#getInstance()}.
+     */
+    @Test
+    public void testGetInstance() {
         pool = ReusablePool.getInstance();
         assertNotNull(pool);
-	}
+    }
 
-	/**
-	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#acquireReusable()}.
-	 */
-	@Test
-	public void testAcquireReusable() {
+    /**
+     * Test method for {@link ubu.gii.dass.c01.ReusablePool#acquireReusable()}.
+     */
+    @Test
+    public void testAcquireReusable() {
         Reusable reusable;
         Reusable reusable2;
         Reusable reusable3;
