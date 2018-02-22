@@ -1,13 +1,13 @@
-package ubu.gii.dass.c01 ;
+package ubu.gii.dass.c01;
 
-public class NotFreeInstanceException extends Exception{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class NotFreeInstanceException extends Exception {
 
-	public NotFreeInstanceException(){
-		super("No hay más instancias reutilizables disponibles. Reintentalo más tarde");
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    public NotFreeInstanceException() {
+        super("No hay más instancias reutilizables disponibles. Reintentalo más tarde");
+    }
 }
