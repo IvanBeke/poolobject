@@ -77,7 +77,6 @@ public class ReusablePoolTest {
     public void testReleaseReusable() {
         Reusable reusable = null;
         Reusable reusable2 = null;
-        Reusable otroReusable = new Reusable();
         int releases = 0;
         try {
             reusable = pool.acquireReusable();
@@ -90,7 +89,7 @@ public class ReusablePoolTest {
             releases++;
             pool.releaseReusable(reusable2);
             releases++;
-            pool.releaseReusable(otroReusable);
+            pool.releaseReusable(reusable);
             releases++;
         } catch (DuplicatedInstanceException e) {
             assertEquals(2, releases);
