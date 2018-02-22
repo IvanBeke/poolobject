@@ -8,6 +8,9 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import ubu.gii.dass.c01.NotFreeInstanceException;
+import ubu.gii.dass.c01.Reusable;
+import ubu.gii.dass.c01.ReusablePool;
 
 /**
  * @author alumno
@@ -15,11 +18,14 @@ import org.junit.Test;
  */
 public class ReusablePoolTest {
 
+    private ReusablePool pool = null;
+
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+	    pool = ReusablePool.getInstance();
 	}
 
 	/**
@@ -27,6 +33,7 @@ public class ReusablePoolTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+	    pool = null;
 	}
 
 	/**
@@ -34,7 +41,8 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testGetInstance() {
-		fail("Not yet implemented");
+        pool = ReusablePool.getInstance();
+        assertNotNull(pool);
 	}
 
 	/**
