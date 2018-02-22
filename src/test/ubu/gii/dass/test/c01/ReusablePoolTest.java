@@ -1,9 +1,7 @@
 /**
- * 
+ *
  */
 package ubu.gii.dass.test.c01;
-
-import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -69,14 +67,33 @@ public class ReusablePoolTest {
             assertEquals(2, reusables);
         }
 
-	}
+    }
 
-	/**
-	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#releaseReusable(ubu.gii.dass.c01.Reusable)}.
-	 */
-	@Test
-	public void testReleaseReusable() {
-		fail("Not yet implemented");
-	}
+    /**
+     * Test method for {@link ubu.gii.dass.c01.ReusablePool#releaseReusable(ubu.gii.dass.c01.Reusable)}.
+     */
+    @Test
+    public void testReleaseReusable() {
+        Reusable reusable = null;
+        Reusable reusable2 = null;
+        Reusable otroReusable = new Reusable();
+        int releases = 0;
+        try {
+            reusable = pool.acquireReusable();
+            reusable2 = pool.acquireReusable();
+        } catch (NotFreeInstanceException e) {
+            fail();
+        }
+        try {
+            pool.releaseReusable(reusable);
+            releases++;
+            pool.releaseReusable(reusable2);
+            releases++;
+            pool.releaseReusable(otroReusable);
+            releases++;
+        } catch (DuplicatedInstanceException e) {
+            assertEquals(2, releases);
+        }
+    }
 
 }
