@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import ubu.gii.dass.c01.DuplicatedInstanceException;
 import ubu.gii.dass.c01.NotFreeInstanceException;
 import ubu.gii.dass.c01.Reusable;
 import ubu.gii.dass.c01.ReusablePool;
@@ -50,7 +51,24 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testAcquireReusable() {
-		fail("Not yet implemented");
+        Reusable reusable;
+        Reusable reusable2;
+        Reusable reusable3;
+        int reusables = 0;
+        try {
+            reusable = pool.acquireReusable();
+            assertNotNull(reusable);
+            reusables++;
+            reusable2 = pool.acquireReusable();
+            assertNotNull(reusable2);
+            reusables++;
+            reusable3 = pool.acquireReusable();
+            assertNotNull(reusable3);
+            reusables++;
+        } catch (NotFreeInstanceException e) {
+            assertEquals(2, reusables);
+        }
+
 	}
 
 	/**
