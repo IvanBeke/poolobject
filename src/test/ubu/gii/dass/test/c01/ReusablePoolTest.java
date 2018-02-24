@@ -66,6 +66,7 @@ public class ReusablePoolTest {
             reusable3 = pool.acquireReusable();
             assertNotNull(reusable3);
             reusables++;
+            fail();
         } catch (NotFreeInstanceException e) {
             assertEquals(2, reusables);
         }
@@ -92,6 +93,7 @@ public class ReusablePoolTest {
             releases++;
             pool.releaseReusable(reusable);
             releases++;
+            fail();
         } catch (DuplicatedInstanceException e) {
             assertEquals(2, releases);
         }
