@@ -42,8 +42,9 @@ public class ReusablePoolTest {
     @Test
     public void testGetInstance() {
         assertNotNull(pool);
-        pool = ReusablePool.getInstance();
-        assertNotNull(pool);
+        ReusablePool pool2 = ReusablePool.getInstance();
+        assertNotNull(pool2);
+        assertEquals(pool, pool2);
     }
 
     /**
