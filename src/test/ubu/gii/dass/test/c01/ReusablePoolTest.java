@@ -14,7 +14,7 @@ import ubu.gii.dass.c01.ReusablePool;
 import static org.junit.Assert.*;
 
 /**
- * @author alumno
+ * @author Iván Iglesias Cuesta
  */
 public class ReusablePoolTest {
 
@@ -41,6 +41,7 @@ public class ReusablePoolTest {
      */
     @Test
     public void testGetInstance() {
+        assertNotNull(pool);
         pool = ReusablePool.getInstance();
         assertNotNull(pool);
     }
@@ -67,7 +68,6 @@ public class ReusablePoolTest {
         } catch (NotFreeInstanceException e) {
             assertEquals(2, reusables);
         }
-
     }
 
     /**
